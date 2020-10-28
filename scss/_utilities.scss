@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+
+$primary-color: #f35a76;
+$secondary-color: #201f1f;
+$text-color: #ffffff;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: $secondary-color;
+  color: $text-color;
+  line-height: 1.6;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 6rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: $secondary-color;
+  height: 10vh;
+  z-index: 10;
+  border-bottom: 1px solid $primary-color;
+  // padding: 0 5rem;
+  nav {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    #logo {
+      width: 50px;
+      height: 50px;
+      // margin-right: auto;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        margin-left: 5rem;
+        cursor: pointer;
+        a {
+          width: 100%;
+          font-size: 1.8rem;
+          transition: all 0.5s ease;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+        &.order {
+          background: $primary-color;
+          border-radius: 10px;
+          padding: 0.5rem 2rem;
+          :hover {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
