@@ -305,7 +305,7 @@ main {
 .features .content .cards .card {
   background: white;
   border-radius: 12px;
-  margin: 2rem;
+  margin: 1rem;
   overflow: hidden;
   width: 400px;
   cursor: pointer;
@@ -445,7 +445,7 @@ footer .container ul li {
 
 footer .container ul li a {
   width: 100%;
-  font-size: 3rem;
+  font-size: 2rem;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -473,7 +473,12 @@ footer .container ul li a:hover {
   height: 100%;
 }
 
+.credit .container p {
+  font-size: 1.5rem;
+}
+
 .credit .container .name a {
+  font-size: 1.5rem;
   font-weight: 900;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
@@ -497,7 +502,7 @@ footer .container ul li a:hover {
 }
 
 .credit .container .logos .fa {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-left: 20px;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
@@ -561,14 +566,11 @@ footer .container ul li a:hover {
   .showcase .info {
     margin-left: 0;
   }
-  .features .content {
-    height: 100%;
-  }
   .features .content h1 {
     text-align: center;
   }
   .features .content .cards {
-    padding: 0 12px;
+    padding: 0 48px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
@@ -620,5 +622,8 @@ footer .container ul li a:hover {
   .pages .slide svg {
     width: 8px;
     height: 8px;
+  }
+  .features .content .cards .card {
+    margin: 0;
   }
 }

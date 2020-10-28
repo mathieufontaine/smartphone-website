@@ -46,12 +46,11 @@
   }
   .features {
     .content {
-      height: 100%;
       h1 {
         text-align: center;
       }
       .cards {
-        padding: 0 12px;
+        padding: 0 48px;
         //   display: block;
         flex-wrap: wrap;
         //   flex-direction: column;
@@ -111,4 +110,32 @@
     width: 8px;
     height: 8px;
   }
+  .soon,
+  .features {
+    .content {
+      // height: 75vh;
+    }
+  }
+  .features {
+    .content {
+      .cards {
+        .card {
+          margin: 0;
+        }
+      }
+    }
+  }
+  // footer {
+  //   height: 10vh;
+  //   .container {
+  //     height: 30%;
+  //   }
+  //   .credit {
+  //     height: 70%;
+  //     .container {
+  //       flex-direction: column;
+  //       justify-content: space-around;
+  //     }
+  //   }
+  // }
 }

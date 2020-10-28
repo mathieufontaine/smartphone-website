@@ -27,7 +27,7 @@ footer {
         cursor: pointer;
         a {
           width: 100%;
-          font-size: 3rem;
+          font-size: 2rem;
           transition: all 0.5s ease;
           &:hover {
             color: $primary-color;
@@ -48,7 +48,11 @@ footer {
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    p {
+      font-size: 1.5rem;
+    }
     .name a {
+      font-size: 1.5rem;
       font-weight: 900;
       transition: 0.5s ease;
       &:hover {
@@ -61,7 +65,7 @@ footer {
       align-items: center;
       justify-content: center;
       .fa {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-left: 20px;
         transition: 0.5s ease;
         &:hover {
