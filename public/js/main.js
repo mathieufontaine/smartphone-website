@@ -1,6 +1,8 @@
 const init = () => {
   const slides = document.querySelectorAll(".slide");
   const section = document.querySelectorAll("section");
+  const tabs = document.querySelectorAll(".navbar li");
+  const logo = document.querySelector("#logo");
 
   let current = 0;
   let scrollSlide = 0;
@@ -8,10 +10,26 @@ const init = () => {
   slides.forEach((slide, index) => {
     slide.addEventListener("click", () => {
       changeDots(slide);
-
+      changeTabs(tabs[index]);
       nextSlide(index);
       scrollSlide = index;
     });
+  });
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      changeDots(slides[index]);
+      changeTabs(tab);
+      nextSlide(index);
+      scrollSlide = index;
+    });
+  });
+
+  logo.addEventListener("click", () => {
+    changeDots(slides[0]);
+    changeTabs(tabs[0]);
+    nextSlide(0);
+    scrollSlide = 0;
   });
 
   const changeDots = dot => {
@@ -19,6 +37,13 @@ const init = () => {
       slide.classList.remove("active");
     });
     dot.classList.add("active");
+  };
+
+  const changeTabs = tab => {
+    tabs.forEach(tab => {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
   };
 
   const nextSlide = pageNumber => {
@@ -41,18 +66,27 @@ const init = () => {
         slides.forEach(slide => {
           slide.style.pointerEvents = "none";
         });
+        tabs.forEach(tab => {
+          tab.style.pointerEvents = "none";
+        });
       },
       onComplete: function() {
         slides.forEach(slide => {
           slide.style.pointerEvents = "all";
         });
+        tabs.forEach(tab => {
+          tab.style.pointerEvents = "all";
+        });
         slides[current].style.pointerEvents = "none";
+        tabs[current].style.pointerEvents = "none";
       }
     });
 
-    tl.to(".showcase img", 0, { rotate: "0deg" }, "-=0.5");
-    tl.to(".showcase h1", 0, { opacity: 0, x: "200px" }, "-=0.5");
-    tl.to(circle, 0, { scale: 0.1 }, "-=0.5");
+    tl.to(".showcase img", 0, { rotate: "0deg" });
+    tl.to(".showcase h1", 0, { opacity: 0, x: "200px" });
+    tl.to(circle, 0, { scale: 0.1 });
+    tl.from(".soon h1", 0, { opacity: 0 });
+
     tl.fromTo(
       currentPage,
       { opacity: 1, pointerEvents: "all" },
@@ -67,20 +101,25 @@ const init = () => {
     tl.fromTo(content, 1, { scale: 0.5 }, { scale: 1.1 }, "-=.5");
     tl.to(circle, 1, { scale: 1 }, "-=1.3");
     tl.to(content, 0.3, { scale: 1 });
-    tl.from(".soon h1", 1, { opacity: 0 }, "-=0.5");
+    tl.to(".soon h1", 1, { opacity: 1 }, "-=0.5");
 
     tl.to(".showcase img", 0.5, { rotate: "20deg" });
-    tl.to(".showcase h1", 0.5, { opacity: 1, x: "-50px" }, "-=0.5");
-
+    tl.to(".showcase h1", 0.5, { opacity: 1, x: "-92px" }, "-=0.5");
+    tl.set(".slides", { clearProps: "all" });
     current = pageNumber;
   };
 
   const switchDots = dotNumber => {
-    const activeDot = document.querySelectorAll(".slide")[dotNumber];
+    const activeDot = slides[dotNumber];
+    const activeTab = tabs[dotNumber];
     slides.forEach(slide => {
       slide.classList.remove("active");
     });
+    tabs.forEach(slide => {
+      slide.classList.remove("active");
+    });
     activeDot.classList.add("active");
+    activeTab.classList.add("active");
   };
 
   const scrollChange = e => {
@@ -117,11 +156,17 @@ const throttle = (func, limit) => {
   };
 };
 
-// let tl = gsap.timeline({ defaults: { duration: 1.5 } });
-// tl.fromTo(".showcase img", { y: 1000 }, { y: -50 });
-// tl.to(".showcase img", 0.5, { y: 0 });
-// // tl.fromTo(".showcase h1", 1, { opacity: 0 }, { x: "200px" }, "-=1");
-// tl.to(".showcase img", { rotate: "20deg" });
-// tl.to(".showcase h1", { opacity: 1, x: "-50px" }, "-=1.5");
-// tl.from([".info, .pages"], { opacity: 0 });
+let tl = gsap.timeline({ defaults: { duration: 1.5 } });
+tl.fromTo(".showcase img", { y: 1000 }, { y: -50 });
+tl.to(".showcase img", 0.5, { y: 0 });
+// tl.fromTo(".showcase h1", 1, { opacity: 0 }, { x: "200px" }, "-=1");
+tl.to(".showcase img", { rotate: "20deg" });
+tl.fromTo(
+  ".showcase h1",
+  { opacity: 0, x: "50px" },
+  { opacity: 1, x: "-92px" },
+  "-=1.5"
+);
+tl.from(".info", { opacity: 0, x: "-92px" }, "-=1.5");
+tl.from(".pages", { opacity: 0 });
 init();

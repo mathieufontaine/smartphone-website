@@ -2,13 +2,16 @@
   html {
     font-size: 50%;
   }
-  .soon {
+  .showcase img {
+    height: 150%;
+  }
+  .soon .content {
     img {
-      width: 700px;
+      width: 600px;
     }
     .circle {
-      width: 320px;
-      height: 320px;
+      width: 450px;
+      height: 450px;
     }
   }
 }
@@ -28,45 +31,62 @@
     h1 {
       align-self: center;
       margin-left: 0;
+      margin-bottom: -40px;
+      width: 100%;
+      transform: translate(0, 0) !important;
     }
     img {
-      transform: scale(2);
+      // transform: scale();
+      height: 70%;
     }
     .info {
-      margin-top: 1rem;
+      // margin-top: 1rem;
       margin-left: 0;
     }
   }
-  .features-content {
-    height: 100%;
-    h1 {
-      text-align: center;
-    }
-    .cards {
-      padding: 0;
-      //   display: block;
-      flex-wrap: wrap;
-      //   flex-direction: column;
-      justify-content: center;
-      height: 80%;
-      margin-top: 2rem;
-      .card {
-        height: 30%;
-        overflow: hidden;
-        img {
-          //   width: auto;
-          height: 50%;
-        }
-        .text {
-          height: 48%;
-          h3 {
-            margin-bottom: 0.5rem;
+  .features {
+    .content {
+      height: 100%;
+      h1 {
+        text-align: center;
+      }
+      .cards {
+        padding: 0 12px;
+        //   display: block;
+        flex-wrap: wrap;
+        //   flex-direction: column;
+        justify-content: center;
+        height: 80%;
+        margin-top: 2rem;
+        .card {
+          height: 30%;
+          overflow: hidden;
+          img {
+            //   width: auto;
+            height: 50%;
+          }
+          .text {
+            height: 48%;
+            h3 {
+              margin-bottom: 0.5rem;
+            }
           }
         }
       }
     }
   }
-  .soon {
+  .soon .content {
+    img {
+      width: 500px;
+    }
+    img,
+    .circle {
+      top: 60%;
+    }
+    .circle {
+      width: 320px;
+      height: 320px;
+    }
     h1 {
       position: relative;
       top: 10%;
@@ -78,13 +98,17 @@
 }
 
 @media (max-width: 600px) {
-  .soon {
+  .soon .content {
     img {
-      width: 100%;
-      top: 60%;
+      width: 150%;
+      // top: 60%;
     }
-    .circle {
-      top: 60%;
-    }
+  }
+  .navbar a {
+    font-size: 2.5rem !important;
+  }
+  .pages .slide svg {
+    width: 8px;
+    height: 8px;
   }
 }
