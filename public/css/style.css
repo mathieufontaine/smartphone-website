@@ -408,7 +408,7 @@ footer {
 
 footer .container {
   width: 80%;
-  height: 100%;
+  height: 50%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -451,6 +451,59 @@ footer .container ul li a {
 }
 
 footer .container ul li a:hover {
+  color: #f35a76;
+}
+
+.credit {
+  background: #05050526;
+  height: 50%;
+}
+
+.credit .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.credit .container .name a {
+  font-weight: 900;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.credit .container .name a:hover {
+  color: #f35a76;
+}
+
+.credit .container .logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.credit .container .logos .fa {
+  font-size: 2.5rem;
+  margin-left: 20px;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.credit .container .logos .fa:hover {
   color: #f35a76;
 }
 
