@@ -86,8 +86,8 @@ img {
 }
 
 .navbar nav #logo {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .navbar nav ul {
@@ -128,6 +128,81 @@ img {
   color: inherit;
 }
 
+main {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.features,
+.soon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pages {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.slide {
+  margin-top: 3rem;
+  cursor: pointer;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.slide:hover {
+  -webkit-animation: dot 0.5s ease-in-out infinite alternate;
+          animation: dot 0.5s ease-in-out infinite alternate;
+}
+
+.slide.active svg circle {
+  fill: #f35a76;
+}
+
+@-webkit-keyframes dot {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+}
+
+@keyframes dot {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+}
+
 .home {
   background: radial-gradient(#525252, #131313);
 }
@@ -140,11 +215,9 @@ img {
       grid-template-columns: 10% repeat(3, minmax(10rem, 1fr)) 10%;
   -ms-grid-rows: 1fr 2fr 1fr;
       grid-template-rows: 1fr 2fr 1fr;
-  overflow-x: hidden;
 }
 
 .showcase h1 {
-  margin-left: -10rem;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-column: 2/4;
@@ -152,6 +225,7 @@ img {
       align-self: flex-end;
   -ms-grid-column-align: center;
       justify-self: center;
+  opacity: 0;
 }
 
 .showcase h1 span {
@@ -168,8 +242,8 @@ img {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  -webkit-transform: scale(2.5) rotate(20deg);
-          transform: scale(2.5) rotate(20deg);
+  -webkit-transform: scale(2.5);
+          transform: scale(2.5);
 }
 
 .showcase .info {
@@ -189,15 +263,15 @@ img {
 
 .features {
   background: #282828;
-  position: relative;
   height: 90vh;
   width: 100%;
   overflow: hidden;
 }
 
-.features-content {
+.features .content {
+  position: relative;
   width: 80%;
-  height: 80%;
+  height: 80vh;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -209,11 +283,12 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1;
 }
 
-.features-content .cards {
+.features .content .cards {
   padding: 0 5rem;
-  margin-top: 10rem;
+  margin-top: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,7 +299,7 @@ img {
   z-index: 1;
 }
 
-.features-content .cards .card {
+.features .content .cards .card {
   background: white;
   border-radius: 12px;
   margin: 2rem;
@@ -232,12 +307,12 @@ img {
   width: 400px;
 }
 
-.features-content .cards .card .line {
+.features .content .cards .card .line {
   height: 6px;
   margin-bottom: 0;
 }
 
-.features-content .cards .card img {
+.features .content .cards .card img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 101%;
@@ -245,7 +320,7 @@ img {
   margin: -1px -1px -5px -1px;
 }
 
-.features-content .cards .card .text {
+.features .content .cards .card .text {
   height: 38%;
   padding: 2rem;
   display: -webkit-box;
@@ -259,12 +334,12 @@ img {
       justify-content: space-around;
 }
 
-.features-content .cards .card .text h3 {
+.features .content .cards .card .text h3 {
   margin-bottom: 1rem;
   font-weight: bold;
 }
 
-.wave {
+.features .wave {
   position: absolute;
   bottom: -25px;
   left: 0;
@@ -276,19 +351,26 @@ img {
 .soon {
   background: #282828;
   overflow-x: hidden;
-  position: relative;
-  height: 80vh;
+  height: 90vh;
 }
 
-.soon h1 {
+.soon .content {
+  position: relative;
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+}
+
+.soon .content h1 {
   position: absolute;
   top: 20%;
   left: 10%;
   width: 300px;
+  z-index: 1;
 }
 
-.soon img,
-.soon .circle {
+.soon .content img,
+.soon .content .circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -296,12 +378,12 @@ img {
           transform: translate(-50%, -50%);
 }
 
-.soon img {
+.soon .content img {
   height: auto;
   width: 800px;
 }
 
-.soon .circle {
+.soon .content .circle {
   height: 600px;
   width: 600px;
   border-radius: 50%;
@@ -396,6 +478,7 @@ footer ul li a:hover {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    overflow: hidden;
   }
   .showcase h1 {
     -ms-flex-item-align: center;

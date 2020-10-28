@@ -7,12 +7,13 @@
   height: 90vh;
   grid-template-columns: 10% repeat(3, minmax(10rem, 1fr)) 10%;
   grid-template-rows: 1fr 2fr 1fr;
-  overflow-x: hidden;
   h1 {
-    margin-left: -10rem;
+    // margin-left: -10rem;
     grid-column: 2/4;
     align-self: flex-end;
     justify-self: center;
+    opacity: 0;
+    // transition: all 0.5 ease;
     span {
       color: $primary-color;
     }
@@ -23,7 +24,7 @@
     grid-row: 2/3;
     // transform: scale(2.5);
     align-self: center;
-    transform: scale(2.5) rotate(20deg);
+    transform: scale(2.5);
   }
 
   .info {
