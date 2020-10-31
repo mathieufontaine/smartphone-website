@@ -570,7 +570,7 @@ footer .container ul li a:hover {
     text-align: center;
   }
   .features .content .cards {
-    padding: 0 48px;
+    padding: 0 24px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
