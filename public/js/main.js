@@ -140,7 +140,7 @@ const init = () => {
   };
 
   document.addEventListener("wheel", throttle(scrollChange, 1500));
-  document.addEventListener("touchmove", throttle(scrollChange, 1500));
+  // document.addEventListener("touchmove", throttle(scrollChange, 1500));
 };
 
 const throttle = (func, limit) => {
